@@ -8,7 +8,8 @@ def get_column(file_name, query_column, query_value, result_column=1):
                     try:
                         results.append(int(values[result_column]))
                     except ValueError:
-                        print(f"Could not convert '{values[result_column]}' to an integer.")
+                        print("Could not convert values to\
+                              an integer.")
     except FileNotFoundError:
         print(f"Error: The file '{file_name}' was not found.")
     return results

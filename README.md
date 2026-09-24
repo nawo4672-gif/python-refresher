@@ -40,6 +40,7 @@ python3 print_fires.py -f <path_to_csv> -c "<Country_Name>"
 | `-c` | `--country` | **Required.** The country name you want to query. | *None* |
 | `-cc` | `--country_column` | The column index where country names are located. | `0` |
 | `-fc` | `--fires_column` | The column index where fire/numeric data is located. | `3` |
+| `-o` | `--operation` | An optional operation: `mean`, `median`, or `standard_deviation`. | *None* |
 
 ---
 
@@ -57,4 +58,11 @@ If your dataset uses different column positions (for instance, if the country is
 ```bash
 python3 print_fires.py -f fire_data.csv -c 'Albania' -cc 1 -fc 4
 
+```
+
+To calculate a statistic instead of printing the returned values, use the
+`--operation` argument:
+
+```bash
+python3 print_fires.py -f fire_data.csv -c 'Albania' --operation mean
 ```

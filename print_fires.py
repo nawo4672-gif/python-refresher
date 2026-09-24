@@ -11,9 +11,16 @@ parser.add_argument('-cc', '--country_column', type=int, default=0,
 parser.add_argument('-fc', '--fires_column', type=int, default=3,
                     help='The column index for the number of fires,'
                     'default is forest fires')
+parser.add_argument('-o', '--operation',
+                    choices=['mean', 'median', 'standard_deviation'],
+                    help='The operation to perform on the returned values')
 args = parser.parse_args()
 
 
 fires = my_utils.get_column(args.file, args.country_column, args.country,
                             result_column=args.fires_column)
-print(fires)
+if args.operation is None:
+    print(fires)
+else:
+    operation = getattr(my_utils, args.operation)
+    print(operation(fires))

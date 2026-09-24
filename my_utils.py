@@ -1,3 +1,20 @@
+from statistics import mean as calculate_mean
+from statistics import median as calculate_median
+from statistics import pstdev
+
+
+def mean(numbers: list[int]) -> float:
+    return calculate_mean(numbers)
+
+
+def median(numbers: list[int]) -> float:
+    return calculate_median(numbers)
+
+
+def standard_deviation(numbers: list[int]) -> float:
+    return pstdev(numbers)
+
+
 def get_column(file_name, query_column, query_value, result_column=1):
     results = []
     conversion_error_occurred = False

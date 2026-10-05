@@ -11,21 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: python3 -m unittest python-refresher/test_my_utils.py
-
-  #run_functional_tests:
+      - run: python3 -m unittest test_my_utils.py
+    
+  run_functional_tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: 
+      - run: bash test_print_fires.sh
   
   run_style_check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: mamba-org/setup-micromamba@v3
+      - uses: actions/setup-python@v5
         with:
-          environment-file: environment.yml
-          init-shell: bash
+          python-version: "3.14"
+      - run: python -m pip install pycodestyle==2.14.0
       - run: pycodestyle $(git ls-files "*.py")
-        shell: bash -l {0}

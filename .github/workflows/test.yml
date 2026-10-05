@@ -27,5 +27,6 @@ jobs:
         with:
           environment-file: environment.yml
           init-shell: bash
+          post-cleanup: none
       - run: pycodestyle $(git ls-files "*.py")
         shell: bash -l {0}

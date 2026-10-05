@@ -19,6 +19,18 @@ Ensure your project directory contains the following two files:
 1. `print_fires.py` (The main execution script with `argparse`)
 2. `my_utils.py` (Contains the `get_column` helper function)
 
+## Continuous Integration
+
+The GitHub Actions workflow in `.github/workflows/test.yml` runs on every push,
+on pull requests targeting `main`, and can also be started manually. It runs
+these checks on Ubuntu:
+
+* **Unit tests:** `python3 -m unittest test_my_utils.py`
+* **Functional tests:** `bash test_print_fires.sh`
+* **Style check:** `pycodestyle` on tracked Python files, using Python 3.14
+
+All three checks must pass for the workflow to succeed.
+
 ---
 
 ## Usage
